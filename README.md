@@ -1,4 +1,4 @@
-![ACL](https://i.imgur.com/7v5ASc8.png)  Lab 03: jQuery and Events
+![ACL](/acl-logo.png)  Lab 03: jQuery and Events
 =======
 [Code of Conduct](https://github.com/codefellows/code-of-conduct)
 
