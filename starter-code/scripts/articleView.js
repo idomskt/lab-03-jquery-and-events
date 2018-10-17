@@ -39,7 +39,7 @@ articleView.handleAuthorFilter = function() {
     if ($(this).val()) {
       $('article').hide();
       $('[data-author = "' + $(this).val() + '"]').fadeIn();
-      
+
     } else {
       $('article').show();
       $('.template').hide();
@@ -53,37 +53,43 @@ articleView.handleCategoryFilter = function() {
     if ($(this).val()) {
       $('article').hide();
       $('[data-category = "' + $(this).val() + '"]').fadeIn();
-      
+
     } else {
       $('article').show();
       $('.template').hide();
     }
-    
+
     $('#author-filter').val('');
   });
 };
 
 articleView.handleMainNav = function() {
   $('.tab').on('click', function(event){
-    
+
     console.log($(this).data('content'));
     var target = $(this).data('content');
     $('.tab-content').hide();
     $("#" + target).show();
 
   })
-  // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
-  //       Clicking any .tab element should hide all the .tab-content sections, and then reveal the
-  //       single .tab-content section that is associated with the clicked .tab element.
-  //       So: You need to dynamically build a selector string with the correct ID, based on the
-  //       data available to you on the .tab element that was clicked.
-
-
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any article body.
+  $('.article-body *:nth-of-type(n+2)').hide();
+  $('.read-on').on('click', function(event){
+    event.preventDefault();
+    console.log($(this).prev());
+    // console.log($(this).prev('.article-body'));
+    // $(this).prev('.article-body').show();
+    $(this).prev().children().show();
+    $(this).text('Show Less').on('click', function(event){
+      $('.article-body *:nth-of-type(n+2)').hide();
+      $(this).html('Read On  &rarr;');
+    });
+
+  })
+   // Hide elements beyond the first 2 in any article body.
 
   // TODO: Add an event handler to reveal all the hidden elements,
   //       when the .read-on link is clicked. You can go ahead and hide the
