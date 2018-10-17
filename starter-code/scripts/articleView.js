@@ -7,6 +7,7 @@ articleView.populateFilters = function() {
   $('article').each(function() {
     var authorName, category, optionTag;
     if (!$(this).hasClass('template')) {
+      console.log('This has a template class.')
       // REVIEW: We need to take every author name from the page, and make it an option in the Author filter.
       //       To do so, Build an `option` DOM element that we can append to the author select box.
       //       Start by grabbing the author's name from an attribute in `this` article element,
